@@ -1,14 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.administrator.httpdemo.MainActivity">
+    <RelativeLayout
+        android:id="@+id/view_layout"
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
 
-
-        <TextView
+        >
+    <com.easefun.polyvsdk.video.PolyvVideoView
+        android:id="@+id/polyv_video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/fl_danmu"
             android:layout_width="match_parent"
-            android:layout_marginTop="204dp"
-            android:layout_height="match_parent" />
-</android.support.constraint.ConstraintLayout>
+            android:layout_height="match_parent"/>
+    </com.easefun.polyvsdk.video.PolyvVideoView>
+    <!-- 音频模式的封面图 -->
+    <com.example.administrator.httpdemo.play.PolyvPlayerAudioCoverView
+        android:id="@+id/polyv_cover_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+        <com.example.administrator.httpdemo.play.PolyvPlayerMediaController
+            android:id="@+id/polyv_player_media_controller"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"/>
+        <com.example.administrator.httpdemo.play.PolyvPlayerVolumeView
+            android:id="@+id/polyv_player_volume_view"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
+        <com.example.administrator.httpdemo.play.PolyvPlayerPreviewView
+            android:id="@+id/polyv_player_first_start_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+        <com.example.administrator.httpdemo.play.PolyvPlayerProgressView
+            android:id="@+id/polyv_player_progress_view"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_play"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="播放"
+        />
+</LinearLayout>

@@ -18,19 +18,21 @@ import java.io.File;
  */
 
 public class MyApplication extends MultiDexApplication {
-    /**
-     * 加密秘钥
-     */
+    /*加密秘钥
+      */
     private String aeskey = "VXtlHmwfS2oYm0CZ";
     /**
      * 加密向量
      */
     private String iv = "2u9gDPKdX6GyQJKU";
+    //使用SDK加密串来配置
+    String config = "o9Yr9r/ThWYmezDZktyg4hdccnE5rtHbAVtzvjJJ+EyIuNszyzSq7ssNDLSU2YpV8A8fJmwFskwd9He2iyaT79M8903wSrBC9XlumWhHdS7RVrgj6na56a47qGZ7b9w86Csxqs5oMXgiCpi3/EAO3g==";//后台发的
 
     @Override
     public void onCreate() {
         super.onCreate();
         OkGo.getInstance().init(this);
+        initPolyvCilent();
     }
 
     public void initPolyvCilent() {
@@ -39,7 +41,7 @@ public class MyApplication extends MultiDexApplication {
 //		new LoadConfigTask().execute();
         PolyvSDKClient client = PolyvSDKClient.getInstance();
         //使用SDK加密串来配置
-        String config = "o9Yr9r/ThWYmezDZktyg4hdccnE5rtHbAVtzvjJJ+EyIuNszyzSq7ssNDLSU2YpV8A8fJmwFskwd9He2iyaT79M8903wSrBC9XlumWhHdS7RVrgj6na56a47qGZ7b9w86Csxqs5oMXgiCpi3/EAO3g==";//后台发的
+        //String config = "o9Yr9r/ThWYmezDZktyg4hdccnE5rtHbAVtzvjJJ+EyIuNszyzSq7ssNDLSU2YpV8A8fJmwFskwd9He2iyaT79M8903wSrBC9XlumWhHdS7RVrgj6na56a47qGZ7b9w86Csxqs5oMXgiCpi3/EAO3g==";//后台发的
         client.setConfig(config, aeskey, iv, getApplicationContext());
 //        client.setConfig("CMWht3MlpVkgpFzrLNAebYi4RdQDY/Nhvk3Kc+qWcck6chwHYKfl9o2aOVBvXVTRZD/14XFzVP7U5un43caq1FXwl0cYmTfimjTmNUYa1sZC1pkHE8gEsRpwpweQtEIiTGVEWrYVNo4/o5jI2/efzA==", aeskey, iv, getApplicationContext());
         //初始化SDK设置
